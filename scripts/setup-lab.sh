@@ -49,6 +49,13 @@ mkdir -p "$ROOT_DIR/workspace/.ssh"
 cp "$SSH_DIR/cadet_key" "$ROOT_DIR/workspace/.ssh/cadet_key"
 chmod 600 "$ROOT_DIR/workspace/.ssh/cadet_key"
 
+# Create SSH config for Testinfra (disables host key checking)
+cat > "$ROOT_DIR/workspace/.ssh/testinfra_ssh_config" << 'SSHEOF'
+Host *
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+SSHEOF
+
 # Build and start containers
 echo "  Building WHT range and fleet nodes..."
 docker compose -f "$DOCKER_DIR/docker-compose.yml" up -d --build 2>&1 | while read -r line; do
