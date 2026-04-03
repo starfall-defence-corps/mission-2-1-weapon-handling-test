@@ -15,7 +15,7 @@ cd obstacle-course/mission-2
 ansible-playbook -i inventory.yml site.yml
 pytest tests/test_web_server.py --hosts=ssh://cadet@localhost:2242 \
   --ssh-identity-file=../../.ssh/cadet_key \
-  --ssh-config=/dev/null -v
+  --ssh-config=../../.ssh/testinfra_ssh_config --sudo -v
 ```
 
 Useful Testinfra helpers:

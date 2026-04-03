@@ -11,7 +11,8 @@ Run with:
   ansible-playbook -i inventory.yml site.yml
   pytest tests/ --hosts=ssh://cadet@localhost:2241 \
     --ssh-identity-file=../../.ssh/cadet_key \
-    --ssh-config=/dev/null -v
+    --ssh-config=../../.ssh/testinfra_ssh_config \
+    --sudo -v
 """
 
 
