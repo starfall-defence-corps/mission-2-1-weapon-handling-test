@@ -22,6 +22,7 @@ You are a newly-minted Ensign at the Starfall Defence Corps Academy. You know An
 git clone https://github.com/YOUR-USERNAME/mission-2-1-weapon-handling-test.git
 cd mission-2-1-weapon-handling-test
 make setup
+source venv/bin/activate
 ```
 
 Read your orders: [Mission Briefing](docs/BRIEFING.md)
