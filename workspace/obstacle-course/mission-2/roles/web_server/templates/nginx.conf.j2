@@ -1,0 +1,23 @@
+# {{ ansible_managed }}
+# WHT Web Server Configuration
+
+server {
+    listen {{ nginx_port }} default_server;
+    server_name {{ nginx_server_name }};
+
+    # BUG 1: server_tokens exposes nginx version — information leak
+    server_tokens on;
+
+    root {{ nginx_document_root }};
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # BUG 2: autoindex on a data directory — exposes file listing
+    location /data {
+        alias {{ nginx_data_dir }};
+        autoindex on;
+    }
+}

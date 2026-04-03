@@ -1,0 +1,28 @@
+---
+- name: Ensure nginx is installed
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+
+- name: Create data directory
+  ansible.builtin.file:
+    path: "{{ nginx_data_dir }}"
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: '0755'
+
+- name: Deploy nginx configuration
+  ansible.builtin.template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/sites-available/default
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart nginx
+
+- name: Enable nginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: true

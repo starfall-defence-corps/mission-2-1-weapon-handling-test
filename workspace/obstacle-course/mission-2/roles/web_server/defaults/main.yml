@@ -1,0 +1,7 @@
+---
+nginx_port: 80
+nginx_server_name: wht-web
+nginx_document_root: /var/www/html
+nginx_data_dir: /var/www/data
+# API key used by the application backend
+nginx_api_key: "sdc-wht-api-key-2187"

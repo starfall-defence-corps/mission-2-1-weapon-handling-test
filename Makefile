@@ -1,0 +1,42 @@
+.PHONY: help setup test reset destroy ssh-wht-ssh ssh-wht-web ssh-web ssh-db ssh-comms
+
+help: ## Show available commands
+	@echo ""
+	@echo "  STARFALL DEFENCE CORPS — Mission 2.1"
+	@echo "  Weapon Handling Test"
+	@echo ""
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
+		awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-14s\033[0m %s\n", $$1, $$2}'
+	@echo ""
+
+setup: ## Launch WHT range + fleet nodes (5 containers)
+	@bash scripts/setup-lab.sh
+
+test: ## Run ARIA verification
+	@bash scripts/check-work.sh
+
+reset: ## Destroy and rebuild all nodes
+	@bash scripts/reset-lab.sh
+
+destroy: ## Tear down everything
+	@bash scripts/destroy-lab.sh
+
+ssh-wht-ssh: ## SSH into wht-ssh (obstacle course target 1)
+	@ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+		-i .docker/ssh-keys/cadet_key cadet@localhost -p 2241
+
+ssh-wht-web: ## SSH into wht-web (obstacle course target 2)
+	@ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+		-i .docker/ssh-keys/cadet_key cadet@localhost -p 2242
+
+ssh-web: ## SSH into sdc-web (fleet, Ubuntu, port 2221)
+	@ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+		-i .docker/ssh-keys/cadet_key cadet@localhost -p 2221
+
+ssh-db: ## SSH into sdc-db (fleet, Rocky Linux, port 2222)
+	@ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+		-i .docker/ssh-keys/cadet_key cadet@localhost -p 2222
+
+ssh-comms: ## SSH into sdc-comms (fleet, Ubuntu, port 2223)
+	@ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+		-i .docker/ssh-keys/cadet_key cadet@localhost -p 2223

@@ -1,0 +1,37 @@
+dependency:
+  name: galaxy
+
+driver:
+  name: default
+
+platforms:
+  - name: wht-ssh
+    managed: false
+    groups:
+      - wht_targets
+  - name: wht-web
+    managed: false
+    groups:
+      - wht_targets
+  - name: sdc-web
+    managed: false
+    groups:
+      - fleet
+      - debian
+  - name: sdc-db
+    managed: false
+    groups:
+      - fleet
+      - redhat
+  - name: sdc-comms
+    managed: false
+    groups:
+      - fleet
+      - debian
+
+provisioner:
+  name: ansible
+
+verifier:
+  name: testinfra
+  directory: tests/

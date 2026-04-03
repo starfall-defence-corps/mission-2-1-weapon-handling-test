@@ -1,0 +1,10 @@
+---
+all:
+  children:
+    wht_web:
+      hosts:
+        wht-web:
+          ansible_host: localhost
+          ansible_port: 2242
+          ansible_user: cadet
+          ansible_ssh_private_key_file: ../../.ssh/cadet_key

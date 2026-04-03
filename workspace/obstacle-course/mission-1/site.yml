@@ -1,0 +1,9 @@
+---
+# WHT Range — Mission 1
+# This playbook calls your ssh_hardening role.
+# Write the role at roles/ssh_hardening/
+- name: WHT Range — SSH Hardening
+  hosts: wht_ssh
+  become: true
+  roles:
+    - ssh_hardening

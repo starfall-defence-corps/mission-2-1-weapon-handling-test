@@ -1,0 +1,10 @@
+---
+# WHT Range — Mission 2
+# This playbook deploys the web_server role.
+# The role WORKS — but it has security bugs.
+# Your job: write Testinfra tests that CATCH the bugs.
+- name: WHT Range — Web Server
+  hosts: wht_web
+  become: true
+  roles:
+    - web_server
