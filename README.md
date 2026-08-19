@@ -1,5 +1,7 @@
 # Starfall Defence Corps Academy
 
+> 🧭 [← Gateway Simulation](https://github.com/starfall-defence-corps/gateway-simulation) · **You are here: 2.1 Weapon Handling Test** · [2.2 Compliance as Code →](https://github.com/starfall-defence-corps/mission-2-2-compliance-as-code) · [🏠 Academy Hub](https://github.com/starfall-defence-corps/sdc-academy)
+
 ## Mission 2.1: Weapon Handling Test
 
 > *"Private YOLO-Deploy pushed untested code to production. Friday. 16:59. Three nodes down. 'I ran it locally and it worked.' This is why we have the WHT."*
