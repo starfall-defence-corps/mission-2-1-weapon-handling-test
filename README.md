@@ -8,7 +8,7 @@
 
 > *"Reaver YOLO-Deploy pushed untested code to production. Friday. 16:59. Three nodes down. 'I ran it locally and it worked.' This is why we have the WHT."*
 
-You are a newly-minted Ensign at the Starfall Defence Corps Academy. You know Ansible. Now prove you can test it. This mission teaches Molecule and Testinfra — the tools that ensure your roles work before they touch production.
+You are a newly-minted Lieutenant at the Starfall Defence Corps Academy. You know Ansible. Now prove you can test it. This mission teaches Molecule and Testinfra — the tools that ensure your roles work before they touch production.
 
 ## Prerequisites
 
