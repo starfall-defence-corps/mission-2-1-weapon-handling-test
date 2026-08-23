@@ -19,7 +19,7 @@ This is why the Starfall Defence Corps requires the Weapon Handling Test. You do
 
 ### 1b. Friendly Forces
 
-You have earned the rank of Ensign through Module 1. You know Ansible: inventory, playbooks, templates, roles, vault. But you have never written a test. Every test so far was written for you by ARIA.
+You have earned the rank of Sub-Lieutenant through Module 1. You know Ansible: inventory, playbooks, templates, roles, vault. But you have never written a test. Every test so far was written for you by ARIA.
 
 That changes now. You will learn Molecule and Testinfra — the tools that prove your roles work before they touch production.
 
