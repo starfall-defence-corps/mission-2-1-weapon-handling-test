@@ -355,4 +355,4 @@ All 3 phases must pass.
 
 ---
 
-*SDC Cyber Command — 2187 — LIEUTENANT JG EYES ONLY*
+*SDC Cyber Command — 2187 — LIEUTENANT EYES ONLY*
