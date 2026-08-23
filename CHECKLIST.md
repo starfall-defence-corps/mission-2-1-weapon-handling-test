@@ -1,6 +1,6 @@
 # Mission 2.1: Weapon Handling Test — Progress Tracker
 
-**Rank**: Lieutenant JG
+**Rank**: Lieutenant
 
 ---
 
