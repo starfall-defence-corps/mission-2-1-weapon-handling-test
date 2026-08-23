@@ -45,7 +45,7 @@ Three parts: the WHT Range (timed obstacle course), then the main mission.
 
 ### 3a. Commander's Intent
 
-Private YOLO-Deploy represents the worst case: untested infrastructure pushed to production. The WHT ensures you never make that mistake. By the end of this mission, you will be able to write Testinfra tests for any Ansible role and run them with Molecule.
+Reaver YOLO-Deploy represents the worst case: untested infrastructure pushed to production. The WHT ensures you never make that mistake. By the end of this mission, you will be able to write Testinfra tests for any Ansible role and run them with Molecule.
 
 ### 3b. WHT Range — Obstacle Course (Timed)
 
@@ -171,7 +171,7 @@ pytest tests/ \
 
 ## 5. COMMAND AND SIGNAL
 
-**Commander's Final Order**: Private YOLO-Deploy's era is over. From this point forward, every role you write will be tested. Every deployment will be verified. The WHT proves you understand this. Write the tests. Run them. Trust nothing until Molecule confirms it.
+**Commander's Final Order**: Reaver YOLO-Deploy's era is over. From this point forward, every role you write will be tested. Every deployment will be verified. The WHT proves you understand this. Write the tests. Run them. Trust nothing until Molecule confirms it.
 
 Proceed to the obstacle course. Start your timer.
 
