@@ -1,6 +1,6 @@
 # Mission 2.1: Weapon Handling Test — Troubleshooting
 
-**Rank**: Lieutenant JG — minimal hints.
+**Rank**: Lieutenant — minimal hints.
 
 ---
 

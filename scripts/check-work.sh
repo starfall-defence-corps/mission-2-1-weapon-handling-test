@@ -35,7 +35,7 @@ if [ $EXIT_CODE -eq 0 ]; then
     echo -e "  ARIA: All objectives verified."
     echo -e "  Mission 2.1 status: COMPLETE"
     echo -e ""
-    echo -e "  Private YOLO-Deploy has been defeated."
+    echo -e "  Reaver YOLO-Deploy has been defeated."
     echo -e "  You test before you deploy. Always."
     echo -e "  The Starfall Defence Corps salutes your work."
     echo -e "  ==============================================${RESET}"
