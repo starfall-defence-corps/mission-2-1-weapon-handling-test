@@ -1,5 +1,5 @@
 ---
-CLASSIFICATION: LIEUTENANT JG EYES ONLY
+CLASSIFICATION: LIEUTENANT EYES ONLY
 MISSION: 2.1 — WEAPON HANDLING TEST
 THEATRE: Starfall Defence Corps Academy
 AUTHORITY: SDC Cyber Command, 2187
@@ -177,4 +177,4 @@ Proceed to the obstacle course. Start your timer.
 
 ---
 
-*SDC Cyber Command — 2187 — LIEUTENANT JG EYES ONLY*
+*SDC Cyber Command — 2187 — LIEUTENANT EYES ONLY*
