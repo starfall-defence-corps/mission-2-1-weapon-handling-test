@@ -64,7 +64,7 @@ Steps:
 2. Create the role: `ansible-galaxy init roles/ssh_hardening`
 3. Write tasks that satisfy each test
 4. Apply: `ansible-playbook -i inventory.yml site.yml`
-5. Verify: `pytest tests/ --hosts=ssh://cadet@localhost:2241 --ssh-identity-file=../../.ssh/cadet_key --ssh-config=/dev/null -v`
+5. Verify: `pytest tests/ --hosts=ssh://cadet@localhost:2241 --ssh-identity-file=../../.ssh/cadet_key --ssh-config=../../.ssh/testinfra_ssh_config --sudo -v`
 6. Iterate until all 5 pass
 
 #### Mission 2: Write the Tests (15–20 min)
@@ -81,7 +81,7 @@ Steps:
 3. Create `tests/test_web_server.py` with at least 4 tests:
    - Basic checks (package installed, service running, port listening)
    - Security checks that expose the bugs
-4. Run your tests: `pytest tests/test_web_server.py --hosts=ssh://cadet@localhost:2242 --ssh-identity-file=../../.ssh/cadet_key --ssh-config=/dev/null -v`
+4. Run your tests: `pytest tests/test_web_server.py --hosts=ssh://cadet@localhost:2242 --ssh-identity-file=../../.ssh/cadet_key --ssh-config=../../.ssh/testinfra_ssh_config --sudo -v`
 5. Some tests should PASS (basic checks), some should FAIL (bug catches)
 
 > **STOP YOUR TIMER**
@@ -148,13 +148,15 @@ host.system_info.distribution == "ubuntu"
 # Against a single host
 pytest tests/ --hosts=ssh://cadet@localhost:2241 \
   --ssh-identity-file=../../.ssh/cadet_key \
-  --ssh-config=/dev/null -v
+  --ssh-config=../../.ssh/testinfra_ssh_config \
+  --sudo -v
 
 # Against multiple hosts
 pytest tests/ \
   --hosts=ssh://cadet@localhost:2221,ssh://cadet@localhost:2222,ssh://cadet@localhost:2223 \
   --ssh-identity-file=../.ssh/cadet_key \
-  --ssh-config=/dev/null -v
+  --ssh-config=../.ssh/testinfra_ssh_config \
+  --sudo -v
 ```
 
 ---
