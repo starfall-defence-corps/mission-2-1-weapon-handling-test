@@ -12,10 +12,11 @@
 ```bash
 pytest tests/ --hosts=ssh://cadet@localhost:PORT \
   --ssh-identity-file=PATH_TO_KEY \
-  --ssh-config=/dev/null -v
+  --ssh-config=PATH_TO_SSH_CONFIG \
+  --sudo -v
 ```
 
-The `--ssh-config=/dev/null` prevents your local SSH config from interfering.
+`--ssh-config` should point to `.ssh/testinfra_ssh_config` (the relative depth depends on your working directory) — this overrides your local SSH config so it doesn't interfere. `--sudo` is required: some tests (e.g. firewall status) check root-owned state and will fail without it, even against a correct role.
 
 ---
 

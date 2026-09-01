@@ -39,7 +39,8 @@ ansible-playbook -i inventory/hosts.yml site.yml
 pytest tests/test_fleet_hardening.py \
   --hosts=ssh://cadet@localhost:2221,ssh://cadet@localhost:2222,ssh://cadet@localhost:2223 \
   --ssh-identity-file=../.ssh/cadet_key \
-  --ssh-config=/dev/null -v
+  --ssh-config=../.ssh/testinfra_ssh_config \
+  --sudo -v
 ```
 
 ## Fleet Nodes
