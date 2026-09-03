@@ -12,7 +12,7 @@ You are a newly-minted Lieutenant at the Starfall Defence Corps Academy. You kno
 
 ## Prerequisites
 
-- Completed Module 1 (Missions 1.1–1.5 + Gateway Simulation)
+- Completed Module 1 (Missions 1.1–1.6 + Gateway Simulation)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (with Docker Compose v2)
 - [GNU Make](https://www.gnu.org/software/make/)
 - Python 3.10+ (with `python3-venv`)

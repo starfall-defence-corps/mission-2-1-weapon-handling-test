@@ -1,7 +1,7 @@
 # Mission 2.1: Weapon Handling Test — Exercises
 
 **Rank**: Lieutenant
-**Prerequisite**: Module 1 complete (Missions 1.1–1.5 + Gateway Simulation)
+**Prerequisite**: Module 1 complete (Missions 1.1–1.6 + Gateway Simulation)
 
 ---
 
