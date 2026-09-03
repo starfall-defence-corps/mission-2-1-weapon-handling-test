@@ -13,7 +13,7 @@ AUTHORITY: SDC Cyber Command, 2187
 
 ### 1a. Enemy Forces
 
-Voidborn operative **PRIVATE YOLO-DEPLOY** pushed a "hardening" role to production. No tests. No review. Friday. 16:59. Three nodes went down. His defence: *"I ran it locally and it worked."*
+Voidborn operative **REAVER YOLO-DEPLOY** pushed a "hardening" role to production. No tests. No review. Friday. 16:59. Three nodes went down. His defence: *"I ran it locally and it worked."*
 
 This is why the Starfall Defence Corps requires the Weapon Handling Test. You do not deploy what you have not tested. Ever.
 
