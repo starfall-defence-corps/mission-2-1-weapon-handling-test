@@ -25,6 +25,7 @@ You are a newly-minted Lieutenant at the Starfall Defence Corps Academy. You kno
 ```bash
 git clone https://github.com/YOUR-USERNAME/mission-2-1-weapon-handling-test.git
 cd mission-2-1-weapon-handling-test
+make doctor
 make setup
 source venv/bin/activate
 ```
