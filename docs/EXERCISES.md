@@ -1,7 +1,7 @@
 # Mission 2.1: Weapon Handling Test — Exercises
 
 **Rank**: Lieutenant
-**Prerequisite**: Module 1 complete (Missions 1.1–1.6 + Gateway Simulation)
+**Prerequisite**: Module 1 complete (Missions 1.1–1.6 + [Gateway Simulation](https://github.com/starfall-defence-corps/gateway-simulation))
 
 ---
 
@@ -280,7 +280,7 @@ cd workspace/obstacle-course/mission-2
 cd workspace/main-mission
 ```
 
-Write a complete test suite for the `fleet_hardening` role from Mission 1.5. You set up everything yourself.
+Write a complete test suite for the `fleet_hardening` role from [Mission 1.5](https://github.com/starfall-defence-corps/mission-1-5-clean-house). You set up everything yourself.
 
 ### Step 1: Bring Your Role
 

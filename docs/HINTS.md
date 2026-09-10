@@ -1,5 +1,7 @@
 # Mission 2.1: Weapon Handling Test — Troubleshooting
 
+> 📚 Deeper reference: [FM-3 — Molecule & Testing Reference](https://github.com/starfall-defence-corps/sdc-academy/blob/main/field-manuals/FM-3-molecule-testing-reference.md)
+
 **Rank**: Lieutenant — minimal hints.
 
 ---

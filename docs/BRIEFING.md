@@ -19,7 +19,7 @@ This is why the Starfall Defence Corps requires the Weapon Handling Test. You do
 
 ### 1b. Friendly Forces
 
-You have earned the rank of Lieutenant through the Gateway Simulation. You know Ansible: inventory, playbooks, templates, roles, vault. But you have never written a test. Every test so far was written for you by ARIA.
+You have earned the rank of Lieutenant through the [Gateway Simulation](https://github.com/starfall-defence-corps/gateway-simulation). You know Ansible: inventory, playbooks, templates, roles, vault. But you have never written a test. Every test so far was written for you by ARIA.
 
 That changes now. You will learn Molecule and Testinfra — the tools that prove your roles work before they touch production.
 
@@ -98,7 +98,7 @@ Steps:
 
 **Location**: `workspace/main-mission/`
 
-Write a complete test scenario for the `fleet_hardening` role from Mission 1.5. You will need to:
+Write a complete test scenario for the `fleet_hardening` role from [Mission 1.5](https://github.com/starfall-defence-corps/mission-1-5-clean-house). You will need to:
 
 1. Copy (or recreate) your `fleet_hardening` role into `main-mission/roles/`
 2. Create `inventory/hosts.yml` and `group_vars/` for the fleet
