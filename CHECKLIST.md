@@ -46,3 +46,5 @@
 - [ ] Role applied successfully
 - [ ] All tests pass
 - [ ] `make test` — all ARIA checks pass
+
+**Next stop**: [Mission 2.2 — Compliance as Code](https://github.com/starfall-defence-corps/mission-2-2-compliance-as-code)
