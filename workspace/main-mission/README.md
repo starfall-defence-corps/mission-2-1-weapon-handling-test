@@ -33,13 +33,14 @@ main-mission/
 
 ## How to Run
 
+Run from the project root — no `cd` needed:
+
 ```bash
-cd main-mission
-ansible-playbook -i inventory/hosts.yml site.yml
-pytest tests/test_fleet_hardening.py \
+ansible-playbook -i workspace/main-mission/inventory/hosts.yml workspace/main-mission/site.yml
+pytest workspace/main-mission/tests/test_fleet_hardening.py \
   --hosts=ssh://cadet@localhost:2221,ssh://cadet@localhost:2222,ssh://cadet@localhost:2223 \
-  --ssh-identity-file=../.ssh/cadet_key \
-  --ssh-config=../.ssh/testinfra_ssh_config \
+  --ssh-identity-file=workspace/.ssh/cadet_key \
+  --ssh-config=workspace/.ssh/testinfra_ssh_config \
   --sudo -v
 ```
 

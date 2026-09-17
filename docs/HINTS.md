@@ -26,7 +26,7 @@ pytest tests/ --hosts=ssh://cadet@localhost:PORT \
 
 **Test names are your specification.** `test_ssh_root_login_disabled` means the test checks `PermitRootLogin no`. Read each test function — the assert statements tell you exactly what state is expected.
 
-**Running from the right directory matters.** `cd` into `obstacle-course/mission-1/` before running ansible-playbook or pytest.
+**Run from the project root — no `cd` needed.** Point `ansible-playbook`/`pytest` at `workspace/obstacle-course/mission-1/...` paths directly (see EXERCISES.md); the root `ansible.cfg` handles connection settings from there.
 
 ---
 

@@ -3,6 +3,8 @@
 **Rank**: Lieutenant
 **Prerequisite**: Module 1 complete (Missions 1.1–1.6 + [Gateway Simulation](https://github.com/starfall-defence-corps/gateway-simulation))
 
+**One directory for everything**: run every command in this mission — `ansible ...`, `ansible-playbook ...`, `pytest ...`, and `make ...` — from the **project root** (the folder with the `Makefile`). An `ansible.cfg` lives there, so no `cd` is required; the steps below use paths relative to the project root throughout.
+
 ---
 
 ## Phase 0: Activate Your Environment
@@ -122,18 +124,18 @@ host.system_info.distribution   # "ubuntu" or "rocky"
 Tests run with pytest. You specify the target host(s) via `--hosts`:
 
 ```bash
-# Single host
-pytest tests/ \
+# Single host (obstacle course, mission-1)
+pytest workspace/obstacle-course/mission-1/tests/ \
   --hosts=ssh://cadet@localhost:2241 \
-  --ssh-identity-file=../../.ssh/cadet_key \
-  --ssh-config=../../.ssh/testinfra_ssh_config \
+  --ssh-identity-file=workspace/.ssh/cadet_key \
+  --ssh-config=workspace/.ssh/testinfra_ssh_config \
   --sudo -v
 
-# Multiple hosts (comma-separated)
-pytest tests/ \
+# Multiple hosts (comma-separated; main mission)
+pytest workspace/main-mission/tests/ \
   --hosts=ssh://cadet@localhost:2221,ssh://cadet@localhost:2222,ssh://cadet@localhost:2223 \
-  --ssh-identity-file=../.ssh/cadet_key \
-  --ssh-config=../.ssh/testinfra_ssh_config \
+  --ssh-identity-file=workspace/.ssh/cadet_key \
+  --ssh-config=workspace/.ssh/testinfra_ssh_config \
   --sudo -v
 ```
 
@@ -203,29 +205,25 @@ def test_firewalld_running(host):
 
 **Location**: `workspace/obstacle-course/mission-1/`
 
-```bash
-cd workspace/obstacle-course/mission-1
-```
-
-1. **Read the 5 tests** at `tests/test_ssh_hardening.py`. Each test is your specification — it tells you exactly what state the system must be in.
+1. **Read the 5 tests** at `workspace/obstacle-course/mission-1/tests/test_ssh_hardening.py`. Each test is your specification — it tells you exactly what state the system must be in.
 
 2. **Create the role**:
    ```bash
-   ansible-galaxy init roles/ssh_hardening
+   ansible-galaxy init workspace/obstacle-course/mission-1/roles/ssh_hardening
    ```
 
-3. **Write tasks** in `roles/ssh_hardening/tasks/main.yml` that satisfy each test. Don't overthink it — you've done all of this in Module 1.
+3. **Write tasks** in `workspace/obstacle-course/mission-1/roles/ssh_hardening/tasks/main.yml` that satisfy each test. Don't overthink it — you've done all of this in Module 1.
 
 4. **Apply the role**:
    ```bash
-   ansible-playbook -i inventory.yml site.yml
+   ansible-playbook -i workspace/obstacle-course/mission-1/inventory.yml workspace/obstacle-course/mission-1/site.yml
    ```
 
 5. **Run the tests**:
    ```bash
-   pytest tests/ --hosts=ssh://cadet@localhost:2241 \
-     --ssh-identity-file=../../.ssh/cadet_key \
-     --ssh-config=../../.ssh/testinfra_ssh_config \
+   pytest workspace/obstacle-course/mission-1/tests/ --hosts=ssh://cadet@localhost:2241 \
+     --ssh-identity-file=workspace/.ssh/cadet_key \
+     --ssh-config=workspace/.ssh/testinfra_ssh_config \
      --sudo -v
    ```
 
@@ -235,26 +233,22 @@ cd workspace/obstacle-course/mission-1
 
 **Location**: `workspace/obstacle-course/mission-2/`
 
-```bash
-cd workspace/obstacle-course/mission-2
-```
-
-1. **Read the role**: Examine `roles/web_server/tasks/main.yml` and `roles/web_server/templates/nginx.conf.j2`. The role works, but it has **security bugs**.
+1. **Read the role**: Examine `workspace/obstacle-course/mission-2/roles/web_server/tasks/main.yml` and `workspace/obstacle-course/mission-2/roles/web_server/templates/nginx.conf.j2`. The role works, but it has **security bugs**.
 
 2. **Apply the role**:
    ```bash
-   ansible-playbook -i inventory.yml site.yml
+   ansible-playbook -i workspace/obstacle-course/mission-2/inventory.yml workspace/obstacle-course/mission-2/site.yml
    ```
 
-3. **Write tests** at `tests/test_web_server.py`. Include:
+3. **Write tests** at `workspace/obstacle-course/mission-2/tests/test_web_server.py`. Include:
    - Basic checks: package installed, service running, port listening, config exists
    - Security checks: find what's wrong in the nginx config and write tests that catch it
 
 4. **Run your tests**:
    ```bash
-   pytest tests/test_web_server.py --hosts=ssh://cadet@localhost:2242 \
-     --ssh-identity-file=../../.ssh/cadet_key \
-     --ssh-config=../../.ssh/testinfra_ssh_config \
+   pytest workspace/obstacle-course/mission-2/tests/test_web_server.py --hosts=ssh://cadet@localhost:2242 \
+     --ssh-identity-file=workspace/.ssh/cadet_key \
+     --ssh-config=workspace/.ssh/testinfra_ssh_config \
      --sudo -v
    ```
 
@@ -276,10 +270,6 @@ cd workspace/obstacle-course/mission-2
 
 **Location**: `workspace/main-mission/`
 
-```bash
-cd workspace/main-mission
-```
-
 Write a complete test suite for the `fleet_hardening` role from [Mission 1.5](https://github.com/starfall-defence-corps/mission-1-5-clean-house). You set up everything yourself.
 
 ### Step 1: Bring Your Role
@@ -287,16 +277,16 @@ Write a complete test suite for the `fleet_hardening` role from [Mission 1.5](ht
 Copy your `fleet_hardening` role from Mission 1.5 (or recreate it):
 
 ```bash
-mkdir -p roles
+mkdir -p workspace/main-mission/roles
 # Either copy from your 1.5 workspace:
-cp -r /path/to/mission-1-5/workspace/roles/fleet_hardening roles/
+cp -r /path/to/mission-1-5/workspace/roles/fleet_hardening workspace/main-mission/roles/
 # Or recreate:
-ansible-galaxy init roles/fleet_hardening
+ansible-galaxy init workspace/main-mission/roles/fleet_hardening
 ```
 
 ### Step 2: Create Inventory
 
-Create `inventory/hosts.yml` and `inventory/group_vars/` for the fleet. Same pattern as previous missions — three nodes, two OS families.
+Create `workspace/main-mission/inventory/hosts.yml` and `workspace/main-mission/inventory/group_vars/` for the fleet. Same pattern as previous missions — three nodes, two OS families.
 
 | Node | OS | Port |
 |------|----|------|
@@ -311,14 +301,14 @@ You know the pattern. `ansible.cfg` for connection settings, `site.yml` calling 
 ### Step 4: Create Molecule Configuration
 
 ```bash
-mkdir -p molecule/default
+mkdir -p workspace/main-mission/molecule/default
 ```
 
-Write `molecule/default/molecule.yml` using the anatomy from Phase 1. Use `managed: false` for all three fleet nodes.
+Write `workspace/main-mission/molecule/default/molecule.yml` using the anatomy from Phase 1. Use `managed: false` for all three fleet nodes.
 
 ### Step 5: Write Tests
 
-Create `tests/test_fleet_hardening.py` with **at least 8 test functions** covering:
+Create `workspace/main-mission/tests/test_fleet_hardening.py` with **at least 8 test functions** covering:
 
 - SSH root login disabled
 - SSH password auth disabled
@@ -332,13 +322,13 @@ Create `tests/test_fleet_hardening.py` with **at least 8 test functions** coveri
 
 ```bash
 # Apply the role
-ansible-playbook -i inventory/hosts.yml site.yml
+ansible-playbook -i workspace/main-mission/inventory/hosts.yml workspace/main-mission/site.yml
 
 # Run your tests against all fleet nodes
-pytest tests/ \
+pytest workspace/main-mission/tests/ \
   --hosts=ssh://cadet@localhost:2221,ssh://cadet@localhost:2222,ssh://cadet@localhost:2223 \
-  --ssh-identity-file=../.ssh/cadet_key \
-  --ssh-config=../.ssh/testinfra_ssh_config \
+  --ssh-identity-file=workspace/.ssh/cadet_key \
+  --ssh-config=workspace/.ssh/testinfra_ssh_config \
   --sudo -v
 ```
 
@@ -347,7 +337,6 @@ All tests should pass.
 ### Step 7: Verify with ARIA
 
 ```bash
-cd ../..   # Back to mission root
 make test
 ```
 
