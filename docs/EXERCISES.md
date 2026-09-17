@@ -124,18 +124,18 @@ host.system_info.distribution   # "ubuntu" or "rocky"
 Tests run with pytest. You specify the target host(s) via `--hosts`:
 
 ```bash
-# Single host
-pytest tests/ \
+# Single host (obstacle course, mission-1)
+pytest workspace/obstacle-course/mission-1/tests/ \
   --hosts=ssh://cadet@localhost:2241 \
-  --ssh-identity-file=../../.ssh/cadet_key \
-  --ssh-config=../../.ssh/testinfra_ssh_config \
+  --ssh-identity-file=workspace/.ssh/cadet_key \
+  --ssh-config=workspace/.ssh/testinfra_ssh_config \
   --sudo -v
 
-# Multiple hosts (comma-separated)
-pytest tests/ \
+# Multiple hosts (comma-separated; main mission)
+pytest workspace/main-mission/tests/ \
   --hosts=ssh://cadet@localhost:2221,ssh://cadet@localhost:2222,ssh://cadet@localhost:2223 \
-  --ssh-identity-file=../.ssh/cadet_key \
-  --ssh-config=../.ssh/testinfra_ssh_config \
+  --ssh-identity-file=workspace/.ssh/cadet_key \
+  --ssh-config=workspace/.ssh/testinfra_ssh_config \
   --sudo -v
 ```
 
