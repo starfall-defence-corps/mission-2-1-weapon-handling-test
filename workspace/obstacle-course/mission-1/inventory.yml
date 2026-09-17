@@ -1,4 +1,7 @@
 ---
+# The SSH key path comes from ansible.cfg (in this directory and the
+# project root), so commands work whether you cd here or run from root.
+
 all:
   children:
     wht_ssh:
@@ -7,4 +10,3 @@ all:
           ansible_host: localhost
           ansible_port: 2241
           ansible_user: cadet
-          ansible_ssh_private_key_file: ../../.ssh/cadet_key
