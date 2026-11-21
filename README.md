@@ -60,8 +60,10 @@ Step-by-step guide: [Exercises](docs/EXERCISES.md) | Stuck? [Hints](docs/HINTS.m
 
 ```
 make help          Show available commands
+make doctor        Check your machine is mission-ready (Docker, ports, tools)
 make setup         Launch WHT range + fleet (5 containers)
 make test          Ask ARIA to verify your work
+make submit        Submit your work for ARIA review (branch, commit, push, PR)
 make reset         Destroy and rebuild all nodes
 make destroy       Tear down everything
 make ssh-wht-ssh   SSH into obstacle course target 1
@@ -70,6 +72,8 @@ make ssh-web       SSH into sdc-web (fleet)
 make ssh-db        SSH into sdc-db (fleet)
 make ssh-comms     SSH into sdc-comms (fleet)
 ```
+
+> **Note:** `make submit` uses the [GitHub CLI](https://cli.github.com/) — install `gh` and run `gh auth login` once before your first submission.
 
 ## ARIA Review (Pull Request Workflow)
 
